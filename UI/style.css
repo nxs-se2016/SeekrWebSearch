@@ -1,0 +1,73 @@
+
+
+body {
+    background-color: rgba(227,217,202,1);
+    
+  }
+  
+  #logo {
+    font-family: playfair display;
+    color: rgba(0,0,0,0.75);
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0px;
+     
+  }
+
+  #searchBar {
+    font-family: playfair display;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-family: playfair display;
+    font-size: 20px;
+    border: none;
+    border-radius: 100px;
+    width: 500px;
+  }
+  
+  button.button-3 {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: playfair display;
+    background-color: rgba(0,0,0,0.75);
+    color: rgba(227,217,202,1);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-left: -100px;
+  }
+  
+  button.button-3:hover {
+    background-color: rgba(0,0,0,0.5);
+  }
+  #logoSmall {
+    font-family: playfair display;
+    color: rgba(0,0,0,0.75);
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0px;
+  }
+  .links a:hover{
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+ 
+  
