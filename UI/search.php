@@ -29,7 +29,7 @@
                 $result_preview=$result['Preview'];
                     
                 echo "<div class='search_result'> 						
-                    <h3><a href='$result_link'>$result_title</a></h3>
+                    <h3><a href='$result_url'>$result_title</a></h3>
                     <article><a href='$result_url'>$result_preview</a></article>			
                 </div>";
             }   
