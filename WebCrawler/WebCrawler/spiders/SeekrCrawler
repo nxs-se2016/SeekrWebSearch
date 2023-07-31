@@ -1,0 +1,23 @@
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
+from w3lib.html import remove_tags
+
+class CyberminerSpider(CrawlSpider):
+    name = 'cyberminer'
+    allowed_domains = ['edu', 'com', 'org', 'net', 'gov']
+    start_urls = ['http://www.example.com']
+
+    rules = (
+        Rule(LinkExtractor(allow=(r'http://(www\.)?([a-zA-Z0-9]+)\.(edu|com|org|net|gov)$')), callback='parse_item', follow=True),
+    )
+
+    def __init__(self, *a, **kw):
+        super(CyberminerSpider, self).__init__(*a, **kw)
+        self.keywords = kw.get('keywords')
+
+    def parse_item(self, response):
+        page_text = remove_tags(response.text).lower()
+        if any(keyword.lower() in page_text for keyword in self.keywords):
+            yield {
+                'URL': response.url,
+            }
