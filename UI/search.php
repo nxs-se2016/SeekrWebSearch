@@ -14,7 +14,7 @@
     if (isset($_GET['search'])) {
         $param = "%{$_GET['search']}%";
 
-        if($andMatch){$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description AND ?");}
+        if('andCheck'== 'off'){echo "<h2>YIPEE</h2>";$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description AND ?");}
         else if($invMatch){$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description NOT ?");}  
         else if($invMatch){$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description OR ?");}
         else{$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description LIKE ?");}
