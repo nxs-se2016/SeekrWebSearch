@@ -13,9 +13,16 @@
 	
     if (isset($_GET['search'])) {
         $param = "%{$_GET['search']}%";
-        $query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description LIKE ?");
+
+        if($andMatch){$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description AND ?");}
+        else if($invMatch){$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description NOT ?");}  
+        else if($invMatch){$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description OR ?");}
+        else{$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description LIKE ?");}
+
         mysqli_stmt_bind_param($query, "s", $param);
         mysqli_stmt_execute($query);
+
+        
         $results = mysqli_stmt_get_result($query);
         $rows = mysqli_num_rows($results);
         mysqli_stmt_close($query);
