@@ -1,8 +1,5 @@
 <?php
-    $servername = "LOCALHOST";
-    $username = "USERNAME";
-    $password = "PASSWORD";
-    $database = "DATABASE";
+    include('config.php');
 
     $con = mysqli_connect($servername, $username, $password, $database);
 	
@@ -23,6 +20,8 @@
         else{$query = mysqli_prepare($con, "SELECT * FROM Results WHERE Description LIKE ?");}
 
         //executes the full query
+        $param = "%{$_GET['search']}%";
+        $query = mysqli_prepare($con, "SELECT * FROM Links WHERE Description LIKE ?");
         mysqli_stmt_bind_param($query, "s", $param);
         mysqli_stmt_execute($query);
 
