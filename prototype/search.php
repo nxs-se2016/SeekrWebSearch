@@ -7,7 +7,7 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         exit();
      }
-    header("Location: C:\Users\theca\SeekrWebSearch\UI\resultsPage.html");
+    header("Location: ../UI/resultsPage.html");
 	
     //GETS QUERY
     if (isset($_GET['search'])) {
@@ -49,6 +49,6 @@
     } else {
         echo "<h2>No search query provided. Please try your search again.</h2>";
     }
-    mysqli_close($mysqli);
+    mysqli_close($con);
     exit;
 ?>
